@@ -1,0 +1,57 @@
+/*
+	 Sınıf Çalışması: Klavyeden sıfır girilene kadar alınan sayıların pozitif ve negatif olanlarının ayrı ayrı toplamını
+	 bulan programı yazınız. Programda hiç negatif veya pozitif sayı girilmemişse uygun mesajlar verilmelidir
+*/
+
+package csd;
+
+class App {
+    public static void main(String[] args)
+    {
+        FindPosNegSumApp.run();
+    }
+}
+
+
+class FindPosNegSumApp {
+    public static void run()
+    {
+        java.util.Scanner kb = new java.util.Scanner(System.in);
+
+        System.out.println("Sayıları girmeye başlayınız:");
+
+        int negSum = 0, posSum = 0;
+        int posCount = 0, negCount = 0;
+        int val;
+
+        System.out.print("Bir sayı giriniz:");
+
+        while ((val = Integer.parseInt(kb.nextLine())) != 0) {
+
+            if (val > 0) {
+                posSum += val;
+                ++posCount;
+                System.out.print("Bir sayı giriniz:");
+            } else {
+                negSum += val;
+                ++negCount;
+                System.out.print("Bir sayı giriniz:");
+            }
+        }
+
+        printResult(posSum, negSum, posCount, negCount);
+    }
+
+    public static void printResult(int posSum, int negSum, int posCount, int negCount)
+    {
+        if (posSum != 0)
+            System.out.printf("%d tane pozitif sayının toplamı:%d%n", posCount, posSum);
+        else
+            System.out.println("Hiç pozitif sayı girmediniz");
+
+        if (negSum != 0)
+            System.out.printf("%d tane negatif sayının toplamı:%d%n", negCount, negSum);
+        else
+            System.out.println("Hiç negatif sayı girmediniz");
+    }
+}
