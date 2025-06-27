@@ -1,0 +1,45 @@
+/* Sınıf Çalışması: Parametresi ile aldığı int türden bir sayının basamak sayısını döndüren countDigits isimli metodu 
+	 NumberUtil isimli sınıf içerisinde yazınız ve aşağıdaki kod ile test ediniz
+	 Not: İleride daha iyisi yazılacaktır */
+
+package csd;
+
+class App {	
+	public static void main(String [] args)
+	{
+		CountDigitsTest.run();
+	}
+}
+
+class CountDigitsTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		int val;
+		System.out.print("Bir sayı giriniz:");
+		
+		while ((val = Integer.parseInt(kb.nextLine())) != 0) {			
+			System.out.printf("%d sayısının basamak sayısı:%d%n", val, NumberUtil.countDigits(val));
+			System.out.println("Bir sayı giriniz:");
+		}
+		
+		System.out.printf("0 sayısının basamak sayısı:%d%n", NumberUtil.countDigits(0));
+	}
+}
+
+class NumberUtil {
+	public static int countDigits(int val)
+	{
+		if (val == 0)
+			return 1;
+		
+		int count = 0;
+		
+		while (val != 0) {
+			++count;
+			val /= 10;					
+		}
+		
+		return count;
+	}
+}
