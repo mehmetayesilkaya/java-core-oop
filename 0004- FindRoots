@@ -1,0 +1,67 @@
+/*----------------------------------------------------------------------------------------------------------------------	 
+  Sınıf Çalışması: Katsayıları klavyeden girilen ikinci dereceden bir denklemin köklerini bulup ekrana yazdıran
+	programı yazınız. 
+	Not: İleride daha iyisi yazılacaktır
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String[] args)
+    {
+        EquationSolverApp.run();
+    }
+}
+
+class EquationSolverApp {
+    public static void run()
+    {
+        java.util.Scanner kb = new java.util.Scanner(System.in);
+
+        System.out.println("İkinci dereceden denklemin katsayılarını giriniz:");
+        System.out.print("a?");
+        double a = Double.parseDouble(kb.nextLine());
+
+        System.out.print("b?");
+        double b = Double.parseDouble(kb.nextLine());
+
+        System.out.print("c?");
+        double c = Double.parseDouble(kb.nextLine());
+
+        EquationSolver.printRoots(a, b, c);
+    }
+}
+
+
+class EquationSolver {
+    public static double getDelta(double a, double b, double c)
+    {
+        return b * b - 4 * a * c;
+    }
+
+    public static void doWorkForDifferentRoots(double a, double b, double delta)
+    {
+       double x1, x2;
+       double sqrtdelta = Math.sqrt(delta);
+        
+       x1 = (-b - sqrtdelta) / (2 * a);
+       x2 = (-b + sqrtdelta) / (2 * a);
+       
+       System.out.printf("x1: %f , x2: %f", x1, x2);
+    }
+
+    public static void noRealRoots()
+    {
+        System.out.println("Does not exist any real roots.");
+    }
+
+    public static void printRoots(double a, double b, double c)
+    {
+        double delta = EquationSolver.getDelta(a, b, c);
+        if (delta >= 0)
+            doWorkForDifferentRoots(a, b, delta);
+        else
+            noRealRoots();
+    }
+}
