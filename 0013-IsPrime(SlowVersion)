@@ -1,0 +1,41 @@
+/*----------------------------------------------------------------------------------------------------------------------	 
+	 Sınıf Çalışması: Parametresi ile aldığı long türden bir sayının asal olup olmadığını test eden isPrime isimli 
+	 metodu NumberUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz
+	 (Yavaş versiyon)
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {	
+	public static void main(String [] args)
+	{
+		IsPrimeTest.run();
+	}
+}
+
+class IsPrimeTest {
+	public static void run()
+	{
+		for (int a = -10; a <= 100; ++a)
+			if (NumberUtil.isPrime(a))
+				System.out.printf("%d ", a);
+		System.out.println();
+		
+		System.out.println(NumberUtil.isPrime(1_000_003));
+	}
+}
+
+class NumberUtil {
+	public static boolean isPrime(long a)
+	{
+		if (a <= 1)
+			return false;
+		
+		long half = a / 2;
+		
+		for (long i = 2; i <= half; ++i)
+			if (a % i == 0)
+				return false;
+		
+		return true;
+	}	
+}
