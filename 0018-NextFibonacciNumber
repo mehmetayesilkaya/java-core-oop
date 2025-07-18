@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Parametresi ile aldığı int türden bir sayıdan büyük ilk Fibonacci sayısına geri dönen nextFibonacciNumber
-	isimli metodu yazınız ve aşağıdaki kod ile test ediniz
+Sınıf Çalışması: Parametresi ile aldığı int türden bir sayıdan büyük ilk Fibonacci sayısına geri dönen nextFibonacciNumber
+isimli metodu yazınız ve aşağıdaki kod ile test ediniz
 ----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
