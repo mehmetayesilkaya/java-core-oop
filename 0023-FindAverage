@@ -1,0 +1,35 @@
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Sınıf Çalışması: Klavyeden sıfır girilene kadar alınan int türden sayıların ortalamasını bulan programı yazınız.
+	Açıklamalar: Toplam değeri ve toplam girilen değerlerin sayısı int olarak tutulacaktır 
+	
+	Aşağıdaki örnekte tür dönüştürme operatörü kullanılmazsa bilgi kaybı oluşabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {	
+	public static void main(String [] args)
+	{		
+		FindAverageApp.run();		
+	}
+}
+
+class FindAverageApp {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("Sayıları girmeye başlayınız:");
+		int sum = 0, count = 0;
+		int val;
+		
+		while ((val = Integer.parseInt(kb.nextLine())) != 0) {
+			sum += val;
+			++count;
+		}
+		double average;
+		
+		average = (double)sum / count;
+		
+		System.out.printf("Ortalama: %f%n", average);		
+	}
+}
